@@ -63,9 +63,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.RequireHttpsMetadata = false; // Apenas para ambiente local
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateAudience = false,
-            NameClaimType = "preferred_username",
-            RoleClaimType = "realm_access.roles"
+            ValidateAudience = false, // Desabilite por enquanto para simplificar o dev
+            NameClaimType = "preferred_username", // Usa o username do token como o nome do usuário
+            RoleClaimType = "realm_access.roles" // Diz ao .NET onde encontrar as roles no token
         };
     });
 
