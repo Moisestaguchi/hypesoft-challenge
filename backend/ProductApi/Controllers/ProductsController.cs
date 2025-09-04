@@ -40,7 +40,7 @@ public class ProductsController : ControllerBase
         => await _repo.UpdateAsync(id, product) ? NoContent() : NotFound();
 
     [HttpDelete("{id}")]
-    [Authorize(Policy = "RequireAdmin")]
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> Delete(string id)
         => await _repo.DeleteAsync(id) ? NoContent() : NotFound();
 }
